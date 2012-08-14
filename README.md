@@ -1,6 +1,6 @@
-# jquery.Expandy plugin
+# jquery.HoverExpandy plugin
 
-Lets you turn a list (or a div with things in it) into an expandable quasi-carousel.
+Lets you turn a list (or a div with things in it) into an expandable showcase on mouse hover.
 
 ## Basic example
 
@@ -10,34 +10,34 @@ I'd usually use an unordered list, but i guess this should work just as well wit
 
 ```html
 <ul class="cf" id="expandy">
-	<li>
-		<a href="http://www.google.co.uk">
-			<h2>Google</h2>
+	<li class="first">
+		<img src="img/6881280664_3da4704890.jpg">
+		<a href="http://www.flickr.com/photos/dsnine/6881280664/in/photostream" class="info">
+			Toad
 		</a>
 	</li>
-	<li>
-		<a href="http://www.bing.co.uk">
-			<h2>Bing</h2>
+	<li class="second">
+		<img src="img/7181531455_a01b90f87d.jpg">
+		<a href="http://www.flickr.com/photos/dsnine/7181531455/in/photostream" class="info">
+			Owl
 		</a>
 	</li>
-	<li>
-		<a href="http://www.yahoo.co.uk">
-			<h2>Yahoo</h2>
+	<li class="third">
+		<img src="img/7551308320_dbbb75c71b.jpg">
+		<a href="http://www.flickr.com/photos/dsnine/7551308320/in/photostream" class="info">
+			Ladybird
 		</a>
 	</li>
-	<li>
-		<a href="http://www.duckduckgo.com">
-			<h2>Duck Duck Go</h2>
+	<li class="fourth">
+		<img src="img/7551311698_666de2a3a8.jpg">
+		<a href="http://www.flickr.com/photos/dsnine/7551311698/in/photostream" class="info">
+			Common Blue
 		</a>
 	</li>
-	<li>
-		<a href="http://www.lmgtfy.com">
-			<h2>Let Me Google That For you</h2>
-		</a>
-	</li>
-	<li>
-		<a href="http://www.github.com">
-			<h2>GitHub</h2>
+	<li class="fifth">
+		<img src="img/7581409432_972b80d832.jpg">
+		<a href="http://www.flickr.com/photos/dsnine/7581409432/in/photostream" class="info">
+			Green bottle
 		</a>
 	</li>
 </ul>
@@ -45,88 +45,29 @@ I'd usually use an unordered list, but i guess this should work just as well wit
 
 ### CSS
 
-Chuck a bit of CSS in there.
-
-The important parts are to ensure that the container has a set width and height, and that overflow is set to hidden for both the container and each list item (see the demo for the text hiding off-edge).
-
-```css
-#expandy {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	position: relative;
-	overflow: hidden;
-	width: 1000px;
-	height: 240px;
-}
-	
-#expandy li {
-	float: left;
-	position: relative;
-	margin: 0;
-	width: 100px;
-	height: 240px;
-	overflow: hidden;
-	cursor: pointer;
-}
-	
-#expandy li a {
-	display: block;
-	color: #fff;
-	text-decoration: none;
-	height: 240px;
-	position: relative;
-}
-	
-	
-#expandy li h2 {
-	font-size: 14px;
-	margin: 0;
-	width: 800px;
-	overflow: hidden;
-	position: absolute;
-	bottom: 30px;
-	left: 30px;
-}
-	
-#expandy li p {
-	width: 800px;
-	font-size: 14px;
-	margin: 0;
-	position: absolute;
-	top: 30px;
-	left: 30px;
-}
-
-/*clearfix for fixing clears*/
-
-.cf:before, .cf:after { content: ""; display: table; }
-.cf:after { clear: both; }
-.cf { *zoom: 1; }
-```
+Chuck a bit of CSS in there. See the demo HTML file for a sensible example.
 
 ### jQuery
 
-Make sure you have called jQuery, pulled in the expandy js file (and easing if you want those effects too) before you try to run expandy:
+Make sure you have called jQuery, pulled in the HoverExpandy js file (and easing if you want those effects too) before you try to run hoverExpandy:
 
 ```html
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://cachedcommons.org/cache/jquery-easing/1.3.0/javascripts/jquery-easing-min.js"></script>
-<script type="text/javascript" src="/path/to/js/jquery.Expandy.js"></script>
+<script type="text/javascript" src="/path/to/js/jquery.HoverExpandy.js"></script>
 ```
 
 Call expandy to run. This doesn't have to be $(window).load, it could be $(document).ready if that makes you happy. $(window).load is better if you're waiting for images and so forth to finish loading before you invoke expandy to start.
 
+There are some defaults set, but you're probably going to want to change them to something that suits your needs.
+
+Example from the demo HTML file:
+
 ```javascript
 $(window).load(function() {
-	$('#expandy').expandy({
-		'animationDuration' : 250,
-		'slideEasing'		: 'easeOutBounce',
-		'textSizeEasing'	: 'easeInOutExpo',
-		'fontSizeSmall'		: '14px',
-		'fontSizeLarge'		: '30px',
-		'compressedSize'	: '100px',
-		'expandedSize'		: '500px',
+	$('#expandy').hoverExpandy({
+		'animationDuration' : 500,
+		'slideEasing'		: 'easeOutQuint',
 		'firstOpen'			: 0
 	});
 });
@@ -136,19 +77,15 @@ The full list of configurable settings (and the defaults) are as follows:
 
 ```javascript
 'slideElement' 			: 'li',			//the elements under the container that will be expandable
-'animationDuration' 	: 500,			//milliseconds - currently applied to both text and box resizing
-'slideEasing'			: 'swing',		//default options are swing or linear
-'textSizeEasing'		: 'swing',		//include easing plugin for more options (see demo)
-'compressedSize'		: '164px',		//size of boxes when small
+'animationDuration' 		: 500,			//milliseconds - currently applied to both text and box resizing
+'slideEasing'				: 'swing',		//default options are swing or linear
+'compressedSize'			: '125px',		//size of boxes when small
 'expandedSize'			: '500px',		//size of the "expandy"
-'fontSizeLarge'			: '60px',		//size for font when expanded
-'fontSizeSmall'			: '20px',		//size for font when small again (this should really match the size you've set in the css!)
-'firstOpen'				: 0,			//eq starts from zero, not one. which box should be opened first automatically
-'textElement'			: 'h2'			//which element to apply the text resizing on
+'firstOpen'				: 0			//eq starts from zero, not one. which box should be opened first automatically
 ```
 
-The default settings are based on the container for the expandy being 1000px wide and containing 4 child items. You'll need to adjust accordingly depending on how many expandy boxes you want.
+The default settings are based on the container for the expandy being 1000px wide and containing 5 child items. You'll need to adjust accordingly depending on how many expandy boxes you want.
 
 ## Browsers
 
-I've tested and seen this working on Chrome, Safari, Opera, and Firefox on Mac OSX. It should work fine in Internet Explorer 6 (maybe?) onwards. Further testing to be done when I decide I really want to open that browser to do the testing!
+I've tested and seen this working on Chrome and Firefox on Mac. Therefore it should work without hitches in Firefox, Chrome, Safari, Opera, IE10. It should probably work ok in IE7, 8 and 9 as well. No promises for IE6.
