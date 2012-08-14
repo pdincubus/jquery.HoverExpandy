@@ -25,7 +25,6 @@
 		var slideItem = slides + ' > li';
 		var slideLink = slides + ' > ' + settings.slideElement + ' > a';
 		var slideHeight = $(slideItem).height() +'px';
-		console.log(slideHeight);
 		
 		//do some initial stuff
 		var first = $($(slides + ' ' + settings.slideElement).get(settings.firstOpen));
