@@ -4,6 +4,8 @@ Lets you turn a list (or a div with things in it) into an expandable showcase on
 
 ## Basic example
 
+[View the demo](pdincubus.github.com/jquery.HoverExpandy/) for a working example
+
 ### HTML
 
 I'd usually use an unordered list, but i guess this should work just as well with a div with a load of divs inside it too.
