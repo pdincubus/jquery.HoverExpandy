@@ -4,7 +4,7 @@ Lets you turn a list (or a div with things in it) into an expandable showcase on
 
 ## Basic example
 
-[View the demo](pdincubus.github.com/jquery.HoverExpandy/) for a working example
+[View the demo](http://pdincubus.github.com/jquery.HoverExpandy/) for a working example
 
 ### HTML
 
