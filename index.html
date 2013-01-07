@@ -30,91 +30,10 @@
       <section>
         <h1>jquery.HoverExpandy plugin</h1>
 
-<p>Lets you turn a list (or a div with things in it) into an expandable showcase on mouse hover.</p>
+		<p>Lets you turn a list (or a div with things in it) into an expandable showcase on mouse hover.</p>
+		
+		<p><a href="demo.html">Demo</a></p>
 
-<h2>Basic example</h2>
-
-<h3>HTML</h3>
-
-<p>I'd usually use an unordered list, but i guess this should work just as well with a div with a load of divs inside it too.</p>
-
-<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"cf"</span> <span class="na">id=</span><span class="s">"expandy"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"first"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/6881280664_3da4704890.jpg"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.flickr.com/photos/dsnine/6881280664/in/photostream"</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>
-            Toad
-        <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"second"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/7181531455_a01b90f87d.jpg"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.flickr.com/photos/dsnine/7181531455/in/photostream"</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>
-            Owl
-        <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"third"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/7551308320_dbbb75c71b.jpg"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.flickr.com/photos/dsnine/7551308320/in/photostream"</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>
-            Ladybird
-        <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fourth"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/7551311698_666de2a3a8.jpg"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.flickr.com/photos/dsnine/7551311698/in/photostream"</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>
-            Common Blue
-        <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"fifth"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"img/7581409432_972b80d832.jpg"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.flickr.com/photos/dsnine/7581409432/in/photostream"</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>
-            Green bottle
-        <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-</pre></div>
-
-<h3>CSS</h3>
-
-<p>Chuck a bit of CSS in there. See the demo HTML file for a sensible example.</p>
-
-<h3>jQuery</h3>
-
-<p>Make sure you have called jQuery, pulled in the HoverExpandy js file (and easing if you want those effects too) before you try to run hoverExpandy:</p>
-
-<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://cachedcommons.org/cache/jquery-easing/1.3.0/javascripts/jquery-easing-min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/path/to/js/jquery.HoverExpandy.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</pre></div>
-
-<p>Call expandy to run. This doesn't have to be $(window).load, it could be $(document).ready if that makes you happy. $(window).load is better if you're waiting for images and so forth to finish loading before you invoke expandy to start.</p>
-
-<p>There are some defaults set, but you're probably going to want to change them to something that suits your needs.</p>
-
-<p>Example from the demo HTML file:</p>
-
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'#expandy'</span><span class="p">).</span><span class="nx">hoverExpandy</span><span class="p">({</span>
-        <span class="s1">'animationDuration'</span> <span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
-        <span class="s1">'slideEasing'</span>       <span class="o">:</span> <span class="s1">'easeOutQuint'</span><span class="p">,</span>
-        <span class="s1">'firstOpen'</span>         <span class="o">:</span> <span class="mi">0</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</pre></div>
-
-<p>The full list of configurable settings (and the defaults) are as follows:</p>
-
-<div class="highlight"><pre><span class="s1">'slideElement'</span>          <span class="o">:</span> <span class="s1">'li'</span><span class="p">,</span>         <span class="c1">//the elements under the container that will be expandable</span>
-<span class="s1">'animationDuration'</span>         <span class="o">:</span> <span class="mi">500</span><span class="p">,</span>          <span class="c1">//milliseconds - currently applied to both text and box resizing</span>
-<span class="s1">'slideEasing'</span>               <span class="o">:</span> <span class="s1">'swing'</span><span class="p">,</span>      <span class="c1">//default options are swing or linear</span>
-<span class="s1">'compressedSize'</span>            <span class="o">:</span> <span class="s1">'125px'</span><span class="p">,</span>      <span class="c1">//size of boxes when small</span>
-<span class="s1">'expandedSize'</span>          <span class="o">:</span> <span class="s1">'500px'</span><span class="p">,</span>      <span class="c1">//size of the "expandy"</span>
-<span class="s1">'firstOpen'</span>             <span class="o">:</span> <span class="mi">0</span>         <span class="c1">//eq starts from zero, not one. which box should be opened first automatically</span>
-</pre></div>
-
-<p>The default settings are based on the container for the expandy being 1000px wide and containing 5 child items. You'll need to adjust accordingly depending on how many expandy boxes you want.</p>
-
-<h2>Browsers</h2>
-
-<p>I've tested and seen this working on Chrome and Firefox on Mac. Therefore it should work without hitches in Firefox, Chrome, Safari, Opera, IE10. It should probably work ok in IE7, 8 and 9 as well. No promises for IE6.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/pdincubus">pdincubus</a></p>
